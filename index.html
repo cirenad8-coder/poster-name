@@ -1,102 +1,195 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>بوستر الاسم</title>
+
+  <style>
+    @font-face {
+      font-family: "Zarid";
+      src: url("./29LTZaridSans-Regular.otf") format("opentype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #0b0b0b;
+      color: #fff;
+      font-family: Zarid, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrap {
+      width: min(900px, 100%);
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #2a2a2a;
+      background: #0c0c0c;
+      color: #fff;
+      font-size: 18px;
+      outline: none;
+      font-family: Zarid, Arial, sans-serif;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 14px;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: Zarid, Arial, sans-serif;
+    }
+
+    #downloadBtn { background: #22c55e; color: #07150b; }
+    #clearBtn    { background: #262626; color: #fff; }
+
+    .preview {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    canvas {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      background: #000;
+    }
+
+    .hint {
+      opacity: .8;
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
   </style>
 </head>
+
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="ar" dir="rtl"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;اكتب اسمك&lt;/title&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #f5f5f5;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.box {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>input, button {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>canvas {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1">&lt;div class="box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h3&gt;اكتب اسمك&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;input id="name" placeholder="اكتب اسمك هنا"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;button id="download"&gt;تحميل البوستر&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;canvas id="c"&gt;&lt;/canvas&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const canvas = document.getElementById('c');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const ctx = canvas.getContext('2d');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const img = new Image();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>img.src = './poster.jpg'; // اسم صورة البوستر</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const NAME_X = 540;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const NAME_Y = 880;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>img.onload = () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>canvas.width = img.width;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>canvas.height = img.height;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>draw('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>function draw(text) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>ctx.clearRect(0, 0, canvas.width, canvas.height);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>ctx.drawImage(img, 0, 0);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>ctx.font = '30px Arial';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>ctx.fillStyle = '#ffffff';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>ctx.textAlign = 'center';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>ctx.textBaseline = 'middle';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>ctx.direction = 'rtl';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>ctx.fillText(text, NAME_X, NAME_Y);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('name').addEventListener('input', e =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>draw(e.target.value);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('download').addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const a = document.createElement('a');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>a.href = canvas.toDataURL('image/png');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>a.download = 'poster.png';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>a.click();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>});</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="wrap">
+    <div class="card">
+      <label for="nameInput">اكتب اسمك</label>
+      <input id="nameInput" type="text" placeholder="مثال: ريناد" autocomplete="off" />
+
+      <div class="row">
+        <button id="downloadBtn" type="button">تحميل البوستر</button>
+        <button id="clearBtn" type="button">مسح الاسم</button>
+      </div>
+
+      <div class="preview">
+        <canvas id="c"></canvas>
+        <div class="hint">إذا الاسم ما بان أول مرة، انتظري ثانيتين (تحميل الخط والصورة).</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // مكان الاسم (مثل ما طلبتي)
+    const NAME_X = 540;
+    const NAME_Y = 880;
+
+    // إعدادات الخط
+    const FONT_SIZE = 30; // مثل ما طلبتي
+    const FONT_FAMILY = 'Zarid';
+    const FONT_COLOR = '#ffffff';
+
+    const canvas = document.getElementById('c');
+    const ctx = canvas.getContext('2d');
+
+    const img = new Image();
+    img.src = './poster.jpg';
+
+    // ننتظر الخط يجهز (مهم عشان يطلع زراد)
+    async function loadFont() {
+      try {
+        if (document.fonts && document.fonts.load) {
+          await document.fonts.load(`${FONT_SIZE}px ${FONT_FAMILY}`);
+        }
+      } catch (e) {}
+    }
+
+    function draw(text) {
+      if (!img.complete) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+
+      // كتابة الاسم
+      ctx.font = `${FONT_SIZE}px ${FONT_FAMILY}`;
+      ctx.fillStyle = FONT_COLOR;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.direction = 'rtl';
+
+      // تحسين بسيط لحدة النص
+      ctx.imageSmoothingEnabled = true;
+
+      // اكتب الاسم
+      if (text && text.trim().length) {
+        ctx.fillText(text.trim(), NAME_X, NAME_Y);
+      }
+    }
+
+    img.onload = async () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      await loadFont();
+      draw('');
+    };
+
+    // تحديث مباشر مع الكتابة
+    document.getElementById('nameInput').addEventListener('input', async (e) => {
+      await loadFont();
+      draw(e.target.value);
+    });
+
+    // تحميل الصورة
+    document.getElementById('downloadBtn').addEventListener('click', async () => {
+      await loadFont();
+      draw(document.getElementById('nameInput').value);
+
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = 'poster.png';
+      a.click();
+    });
+
+    // مسح الاسم
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      const input = document.getElementById('nameInput');
+      input.value = '';
+      draw('');
+      input.focus();
+    });
+  </script>
 </body>
 </html>
